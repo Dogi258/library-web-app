@@ -11,18 +11,59 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: linear-gradient(to right, rgb(68, 171, 255), rgb(0, 255, 200));
+  background: linear-gradient(to right, rgb(255, 166, 156), rgb(255, 114, 62));
 }
 
 header {
-  padding: 3rem;
-  font-size: 1.5em;
+  padding: 4rem;
+  font-size: 2.5em;
 }
 
 main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 footer {
   padding: 2rem;
+}
+
+button {
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 5em;
+  gap: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+  width: 15rem;
+  padding: 2rem;
+  background-color: rgb(154, 220, 241);
+  border: 3px solid black;
+  border-radius: 1em;
+}
+
+.title {
+  font-size: 2.5em;
+}
+.author {
+  font-size: 1.5rem;
+}
+
+.pages {
+  font-size: 1.3rem;
 }
