@@ -5,12 +5,34 @@ const addNewBookModalButton = document.querySelector(
 const closeModalButton = document.querySelector(".close-button");
 const modal = document.querySelector(".modal");
 const overlay = document.getElementById("overlay");
+const form = document.querySelector("form");
 /* Get DOM Elements */
-
 
 addNewBookModalButton.addEventListener("click", () => openModal(modal));
 overlay.addEventListener("click", () => closeModal(modal));
 closeModalButton.addEventListener("click", () => closeModal(modal));
+
+form.addEventListener("submit", handleForm);
+
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+}
+
+function handleForm(e) {
+  e.preventDefault();
+  const title = document.querySelector("[data-title]").value;
+  const author = document.querySelector("[data-author]").value;
+  const pages = document.querySelector("[data-pages]").value;
+  const read = document.querySelector("[data-is-read]").checked;
+  addBookToLibrary(new Book(title, author, pages, read));
+
+  form.reset();
+
+  closeModal(modal);
+}
 
 function openModal(modal) {
   if (modal == null) return;
@@ -24,15 +46,10 @@ function closeModal(modal) {
   overlay.classList.remove("active");
 }
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
+  updateDisplay();
 }
 
 function generateSampleData() {
@@ -51,8 +68,6 @@ function generateSampleData() {
   myLibrary.push(book3);
   myLibrary.push(book4);
 }
-
-function toggleBookRead() {}
 
 function generateNewCard(book, index) {
   const card = createNewElementWithClass("div", "card");

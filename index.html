@@ -18,26 +18,43 @@
       <h1>Library</h1>
     </header>
     <main>
-      <button data-add-new-book-modal-button>Add New Book</button>
+      <button data-add-new-book-modal-button class="add-new-book">
+        Add New Book
+      </button>
       <div class="modal">
         <div class="modal-header">
           <h2>Add New Book</h2>
           <button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
-          <input data-title class="title" type="text" placeholder="Title" />
-          <input data-author class="author" type="text" placeholder="Author" />
-          <input
-            data-pages
-            class="pages"
-            type="number"
-            placeholder="Number of Pages"
-          />
-          <div class="check-box-container">
-            <label for="is-read">Have you read it?</label>
-            <input data-is-read type="checkbox" id="is-read" />
-          </div>
-          <button class="submit">Submit</button>
+          <form action="/">
+            <input
+              data-title
+              class="title"
+              type="text"
+              placeholder="Title"
+              required
+            />
+            <input
+              data-author
+              class="author"
+              type="text"
+              placeholder="Author"
+              required
+            />
+            <input
+              data-pages
+              class="pages"
+              type="number"
+              placeholder="Number of Pages"
+              required
+            />
+            <div class="check-box-container">
+              <label for="is-read">Have you read it?</label>
+              <input data-is-read type="checkbox" id="is-read" />
+            </div>
+            <button type="submit" class="submit">Submit</button>
+          </form>
         </div>
       </div>
       <div id="overlay"></div>

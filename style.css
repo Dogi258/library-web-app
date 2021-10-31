@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: linear-gradient(to right, rgb(255, 166, 156), rgb(255, 114, 62));
+  background: linear-gradient(to right, rgb(0, 225, 255), rgb(0, 39, 122));
 }
 
 header {
@@ -63,8 +63,9 @@ input.pages {
   align-items: center;
   width: 15rem;
   padding: 2rem;
-  background-color: rgb(154, 220, 241);
-  border: 3px solid black;
+  box-shadow: 0 10px 6px -6px #777;
+  background-color: rgba(154, 220, 241, 0.6);
+  border: 2px solid black;
   border-radius: 1em;
 }
 
@@ -79,11 +80,19 @@ input.pages {
   font-size: 1.3rem;
 }
 
-.toggle-read,
-.delete, .submit{
+button {
   width: 10rem;
   padding: 1rem;
   border-radius: 1rem;
+  transition: 10ms;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(1);
 }
 
 .modal {
@@ -94,7 +103,7 @@ input.pages {
   transition: 200ms ease-in-out;
   width: 40rem;
   max-width: 80%;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: 2px solid black;
   border-radius: 1rem;
   z-index: 10;
@@ -113,6 +122,8 @@ input.pages {
 }
 
 .modal-header .close-button {
+  width: 0;
+  padding: 0;
   cursor: pointer;
   border: none;
   outline: none;
@@ -121,7 +132,7 @@ input.pages {
   font-weight: bold;
 }
 
-.modal-body {
+form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -144,7 +155,7 @@ input[type="checkbox"] {
 
 #overlay {
   position: fixed;
-  opacity: 0; 
+  opacity: 0;
   top: 0;
   left: 0;
   bottom: 0;
