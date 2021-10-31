@@ -18,51 +18,30 @@
       <h1>Library</h1>
     </header>
     <main>
-      <button data-add-new-book>Add New Book</button>
-      <div class="container">
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">by J.K. Rowling</div>
-          <div class="pages">23 pages</div>
-          <button class="toggle-read">Toggle: Read</button>
-          <button class="delete">Remove</button>
+      <button data-add-new-book-modal-button>Add New Book</button>
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Add New Book</h2>
+          <button class="close-button">&times;</button>
         </div>
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">by J.K. Rowling</div>
-          <div class="pages">23 pages</div>
-          <button class="toggle-read">Toggle: Read</button>
-          <button class="delete">Remove</button>
-        </div>
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">by J.K. Rowling</div>
-          <div class="pages">23 pages</div>
-          <button class="toggle-read">Toggle: Read</button>
-          <button class="delete">Remove</button>
-        </div>
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">by J.K. Rowling</div>
-          <div class="pages">23 pages</div>
-          <button class="toggle-read">Toggle: Read</button>
-          <button class="delete">Remove</button>
-        </div>
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">by J.K. Rowling</div>
-          <div class="pages">23 pages</div>
-          <button class="toggle-read">Toggle: Read</button>
-          <button class="delete">Remove</button>
-        </div>
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">by J.K. Rowling</div>
-          <div class="pages">23 pages</div>
-          <button class="toggle-read">Toggle: Read</button>
-          <button class="delete">Remove</button>
+        <div class="modal-body">
+          <input data-title class="title" type="text" placeholder="Title" />
+          <input data-author class="author" type="text" placeholder="Author" />
+          <input
+            data-pages
+            class="pages"
+            type="number"
+            placeholder="Number of Pages"
+          />
+          <div class="check-box-container">
+            <label for="is-read">Have you read it?</label>
+            <input data-is-read type="checkbox" id="is-read" />
+          </div>
+          <button class="submit">Submit</button>
         </div>
       </div>
+      <div id="overlay"></div>
+      <div class="container"></div>
     </main>
     <footer>
       <small>&copy; 2021 Copyright: Daniel Martinez</small>

@@ -30,10 +30,21 @@ footer {
   padding: 2rem;
 }
 
-button {
-  width: 10rem;
-  padding: 1rem;
-  border-radius: 1rem;
+button.read {
+  background-color: salmon;
+}
+
+button.not-read {
+  background-color: lightgreen;
+}
+
+input.title,
+input.author,
+input.pages {
+  font-size: 1.2em;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .container {
@@ -66,4 +77,83 @@ button {
 
 .pages {
   font-size: 1.3rem;
+}
+
+.toggle-read,
+.delete, .submit{
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  width: 40rem;
+  max-width: 80%;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 1rem;
+  z-index: 10;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border-bottom: 2px solid black;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.modal-body .check-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  font-size: 1.1em;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0; 
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }

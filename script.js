@@ -1,6 +1,28 @@
 /* Get DOM Elements */
-
+const addNewBookModalButton = document.querySelector(
+  "[data-add-new-book-modal-button]"
+);
+const closeModalButton = document.querySelector(".close-button");
+const modal = document.querySelector(".modal");
+const overlay = document.getElementById("overlay");
 /* Get DOM Elements */
+
+
+addNewBookModalButton.addEventListener("click", () => openModal(modal));
+overlay.addEventListener("click", () => closeModal(modal));
+closeModalButton.addEventListener("click", () => closeModal(modal));
+
+function openModal(modal) {
+  if (modal == null) return;
+  modal.classList.add("active");
+  overlay.classList.add("active");
+}
+
+function closeModal(modal) {
+  if (modal == null) return;
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+}
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -28,8 +50,9 @@ function generateSampleData() {
   myLibrary.push(book2);
   myLibrary.push(book3);
   myLibrary.push(book4);
-  console.log(myLibrary);
 }
+
+function toggleBookRead() {}
 
 function generateNewCard(book, index) {
   const card = createNewElementWithClass("div", "card");
@@ -47,10 +70,21 @@ function generateNewCard(book, index) {
   card.appendChild(pagesDiv);
 
   const readStatusButton = createNewElementWithClass("button", "toggle-read");
-  readStatusButton.textContent = "Toggle: Read";
+  // Toggle book read status
+  readStatusButton.addEventListener("click", () => {
+    book.read = !book.read;
+    updateBookStatusButton(book, readStatusButton);
+  });
+  updateBookStatusButton(book, readStatusButton);
   card.appendChild(readStatusButton);
 
   const removeButton = createNewElementWithClass("button", "delete");
+
+  // Remove book when button is clicked
+  removeButton.addEventListener("click", () => {
+    myLibrary.splice(index, 1);
+    updateDisplay();
+  });
   removeButton.textContent = "Remove";
   card.appendChild(removeButton);
 
@@ -58,8 +92,20 @@ function generateNewCard(book, index) {
   return card;
 }
 
+function updateBookStatusButton(book, statusButton) {
+  statusButton.textContent = book.read ? "Read" : "Not Read";
+  if (book.read) {
+    statusButton.classList.remove("read");
+    statusButton.classList.add("not-read");
+  } else {
+    statusButton.classList.remove("not-read");
+    statusButton.classList.add("read");
+  }
+}
+
 function updateDisplay() {
   const cardContainer = document.querySelector(".container");
+  cardContainer.innerHTML = "";
 
   myLibrary.forEach((book, index) => {
     const card = generateNewCard(book, index);
