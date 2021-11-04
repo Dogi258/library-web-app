@@ -14,11 +14,14 @@ closeModalButton.addEventListener("click", () => closeModal(modal));
 
 form.addEventListener("submit", handleForm);
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 function handleForm(e) {
@@ -45,7 +48,6 @@ function closeModal(modal) {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
-
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
